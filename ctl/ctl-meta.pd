@@ -1,0 +1,10 @@
+#N canvas 849 477 506 253 10;
+#X text 10 168 LICENSE GNU GPL;
+#X text 10 50 AUTHOR Cyrille Henry;
+#X text 10 188 VERSION 2.01;
+#X text 10 30 NAME ctl;
+#X text 10 70 DESCRIPTION "Cuelist Time Line" is a patch that help
+the constrution of a time line \, specially for theater projects. The
+time line is based on a textfile that can easilly be edited without
+any pd knowledge. This project aim at controlling other modules offering
+sound difusion / lighting control etc \, made with pd;

@@ -1,0 +1,59 @@
+cue Initialisation
+speed 1
+cmd client 1 delete_surface + delete_surface + delete_surface
+comment1 Bonjour voici les cues prévus
+comment2 Durée du spectacle: 45 secondes
+comment3 Editez le fichier cue_list.txt pour modifier la liste
+comment4 Cyril Communal 2019
+
+cue cue1 20 #secondes
+comment1 cmd client 1 create_surface
+comment2 cmd client 1 move_surface 100 100
+cmd client 1 create_surface
+cmd client 1 move_surface 100 100
+# delaySend 1000 cmd 1000
+
+cue cue2 -1
+cmd client 1 settings true + load_video 0
+#surface 2 move_rct 22 22
+comment1 TOTO TATA TITI ET ALLER A LA PLAGE EN MAILLOT DE BAIN
+comment2 FOO BAR
+comment3 GLOP
+comment4 YIPPA
+
+cue cue3 -1
+tst_line 0
+tst_line 100 20000
+
+cue cue4 -1
+
+cue cue5 -1 255 255 0
+cmd surface 5 move_rct 55 55
+
+cue act1
+read cuelist/act1.txt
+
+cue act2
+read cuelist/act2.txt
+
+# hash for comment
+
+# cue <cue_name>
+# cue <cue_name> <autogo_time (Seconds)>
+# cue <cue_name> <autogo_time (Seconds)> <colorR colorG colorB>
+
+###################### and then ###############################
+# <send name (to a 'r xxx' on the patch)> <value list (empty for bang)>
+# delaySend <delay(mS)> <send name> <value list>
+
+# read <relative path to a cue.txt file>
+
+# speed <relative speed of the patch> NOT WORKING UNTIL FOUND USEFUL
+
+# comment1 text
+# comment2 text
+# comment3 textr
+# comment4 text
+
+# whatever foo bar
+

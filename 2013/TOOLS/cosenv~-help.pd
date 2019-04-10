@@ -1,0 +1,26 @@
+#N canvas 743 252 689 498 10;
+#X obj 177 234 see;
+#X obj 84 30 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 191 70 5 0 0 0 - - -;
+#X floatatom 288 97 5 0 0 0 - - -;
+#X floatatom 398 125 5 0 0 0 - - -;
+#X text 140 53 duree de l'attaque en ms;
+#X text 237 79 duree de l'envellope en ms;
+#X text 360 109 duree de decay en ms;
+#X obj 103 200 noise~;
+#X obj 119 316 *~;
+#X obj 107 379 dac~;
+#X obj 178 197 cosenv~;
+#X text 104 27 départ (attention: white noise !);
+#X connect 1 0 0 2;
+#X connect 1 0 11 0;
+#X connect 2 0 11 1;
+#X connect 3 0 0 1;
+#X connect 3 0 11 2;
+#X connect 4 0 11 3;
+#X connect 8 0 9 0;
+#X connect 9 0 10 1;
+#X connect 9 0 10 0;
+#X connect 11 0 9 1;
+#X connect 11 0 0 0;

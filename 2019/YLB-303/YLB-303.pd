@@ -1,0 +1,231 @@
+#N canvas 0 0 1888 970 10;
+#X obj 1727 892 clip~ -1 1;
+#X obj 1726 785 *~;
+#X obj 1534 275 midi_converter, f 24;
+#X obj 1617 699 VEG;
+#X obj 1289 699 VCF, f 19;
+#X obj 1457 742 VCA, f 35;
+#X obj 1331 425 MEG, f 20;
+#X obj 649 115 hsl 128 8 0 127 0 0 \$0-s-sat \$0-r-sat Filter-saturation
+-2 -8 0 12 -262144 -1 -1 0 1;
+#X obj 192 63 hsl 128 8 0 127 0 0 \$0-s-res \$0-r-res Resonance -2
+-8 0 11 -262144 -1 -1 0 1;
+#X obj 192 89 hsl 128 8 0 127 0 0 \$0-s-env \$0-r-env Env.Mod. -2 -8
+0 11 -262144 -1 -1 0 1;
+#X obj 477 115 hsl 128 8 0 127 0 0 \$0-s-amount \$0-r-amount Amount
+-2 -8 0 12 -262144 -1 -1 0 1;
+#X obj 79 37 vradio 15 1 0 2 \$0-s-waveform \$0-r-waveform Waveform
+-60 16 0 11 -262144 -1 -1 0;
+#X text 94 36 Saw;
+#X obj 361 37 tgl 12 0 \$0-s-mute \$0-r-mute Mute -8 -8 0 12 -262144
+-1 -1 0 1;
+#X obj 1745 586 r \$0-s-vol;
+#X obj 1414 213 r \$0-s-env;
+#X obj 1358 165 r \$0-s-decay;
+#X obj 1764 242 r \$0-s-accent;
+#X obj 1200 139 r \$0-s-waveform;
+#X obj 1237 256 r \$0-s-cutoff;
+#X obj 1401 511 r \$0-s-res;
+#X obj 1763 713 r \$0-s-mute;
+#X obj 1763 737 == 0;
+#X obj 1177 488 VCO, f 7;
+#X obj 192 140 hsl 128 8 0 127 0 0 \$0-s-accent \$0-r-accent Accent
+-2 -8 0 11 -262144 -1 -1 0 1;
+#X obj 1413 595 r \$0-s-sat;
+#X msg 1358 191 \$1 20;
+#X obj 1358 213 line;
+#X obj 1237 303 lop~ 10;
+#X obj 1237 280 sig~;
+#X obj 1401 558 lop~ 10;
+#X obj 1401 535 sig~;
+#X obj 1414 642 lop~ 10;
+#X obj 1413 619 sig~;
+#X obj 1746 634 lop~ 10;
+#X obj 1745 610 sig~;
+#X obj 1745 658 /~ 127;
+#X obj 1745 761 *~;
+#X obj 1764 289 lop~ 10;
+#X obj 1764 266 sig~;
+#X obj 1414 258 lop~ 10;
+#X obj 1414 236 sig~;
+#X obj 16 282 loadbang;
+#X obj 16 832 s \$0-r-waveform;
+#X obj 31 810 s \$0-r-cutoff;
+#X obj 46 787 s \$0-r-res;
+#X obj 61 765 s \$0-r-env;
+#X obj 77 743 s \$0-r-decay;
+#X obj 92 721 s \$0-r-accent;
+#X obj 107 699 s \$0-r-sat;
+#X obj 123 677 s \$0-r-mute;
+#X msg 16 471 0;
+#X msg 59 402 64;
+#X msg 166 345 \; pd dsp 1 \;;
+#X obj 1237 391 -~;
+#X obj 1254 345 /~ 127;
+#X obj 1254 368 *~ 60;
+#X obj 1067 281 lop~ 10;
+#X obj 1067 257 sig~;
+#X obj 1067 233 r \$0-s-dcoffset;
+#X obj 192 37 hsl 128 8 0 127 0 0 \$0-s-cutoff \$0-r-cutoff Cutoff
+-2 -8 0 11 -262144 -1 -1 0 1;
+#X obj 138 655 s \$0-r-dcoffset;
+#X obj 649 89 hsl 128 8 0 127 0 0 \$0-s-boost \$0-r-boost Accent-to-VCA
+-2 -8 0 12 -262144 -1 -1 0 1;
+#X floatatom 749 135 4 1 10 0 Oversampling_x #0-r-oversample #0-s-oversample
+, f 4;
+#X obj 1764 507 int;
+#X obj 1764 480 r \$0-s-oversample;
+#X obj 116 392 s \$0-r-oversample;
+#X msg 116 370 4;
+#X obj 1764 368 lop~ 10;
+#X obj 1764 345 sig~;
+#X obj 1764 321 r \$0-s-boost;
+#X obj 153 633 s \$0-r-boost;
+#X obj 391 26 vu 15 120 \$0-r-meter empty -1 -8 0 10 -66577 -1 1 0
+;
+#X obj 1750 856 s \$0-r-meter;
+#X obj 1750 828 VU_meter;
+#X obj 361 59 vsl 12 86 0 127 0 0 \$0-s-vol \$0-r-vol empty 0 100 0
+12 -262144 -1 -1 4283 1;
+#X obj 20 89 hsl 128 8 0 127 0 0 \$0-s-pw \$0-r-pw Pulse-Width -2 -8
+0 12 -262144 -1 -1 0 1;
+#X obj 1222 190 sig~;
+#X obj 1222 166 r \$0-s-pw;
+#X obj 1222 214 lop~ 10;
+#X obj 59 424 s \$0-r-vol;
+#X text 421 513 -> http://www.firstpr.com.au/rwi/dfish/303-unique.html
+;
+#X text 505 548 Oscillators by Maelstorm;
+#X text 476 564 -> https://github.com/dotmmb/mmb;
+#X text 411 497 Design based on an analysis of the TB-303 by Robin
+Whittle;
+#X obj 477 89 hsl 128 8 0 127 0 0 \$0-s-dcoffset \$0-r-dcoffset DC_offset
+-2 -8 0 12 -262144 -1 -1 0 1;
+#X floatatom 64 134 3 0 100 1 Cents #0-r-cents #0-s-cents, f 3;
+#X floatatom 64 120 3 -12 12 1 Semitones #0-r-semi #0-s-semi, f 3
+;
+#X obj 168 611 s \$0-r-pw;
+#X obj 184 589 s \$0-r-semi;
+#X obj 199 567 s \$0-r-cents;
+#X text 409 286 As I don't have a 303 at home \, I used Propellerheads
+Rebirth RB-338 to match (or rather guesstimate) settings by ear.;
+#X text 409 322 MIDI notes with a velocity of 100 or more are accentuated.
+;
+#X text 408 343 Vanilla friendly with a few additions:;
+#X text 412 358 - settable pulse width for the rectangular waveform
+\,;
+#X text 412 397 - accent effect is split for VCF and VCA \,;
+#X text 412 411 - filter saturation and oversampling provided by bob~.
+;
+#X obj 1616 187 r \$0-s-semi;
+#X obj 1699 213 r \$0-s-cents;
+#X obj 1053 555 WS, f 7;
+#X obj 1082 348 sig~;
+#X obj 1082 372 lop~ 10;
+#X obj 1082 324 r \$0-s-mix;
+#X obj 1098 423 sig~;
+#X obj 1098 447 lop~ 10;
+#X obj 1098 399 r \$0-s-amount;
+#X obj 16 493 t f f f f f f f f f f f f f f f;
+#X obj 214 545 s \$0-r-mix;
+#X obj 230 523 s \$0-r-amount;
+#X obj 192 115 hsl 128 8 0 127 0 0 \$0-s-decay \$0-r-decay Decay -2
+-8 0 11 -262144 -1 -1 0 1;
+#X obj 477 140 hsl 128 8 0 127 0 0 \$0-s-mix \$0-r-mix Dry/wet -2 -8
+0 12 -262144 -1 -1 0 1;
+#X text 16 125 Tuning;
+#X text 94 51 Pulse;
+#X obj 1033 107 s \$0-r-boost;
+#X obj 1033 81 r \$0-s-accent;
+#X text 498 46 Waveshapper;
+#X text 678 46 Tweaks;
+#X text 1362 65 MIDI in (note \, velocity);
+#X text 412 371 - DC offset to tanh waveshapping with dry/wet setting
+after the VCO and before the VCF \,;
+#X text 1660 944 Audio out;
+#X text 409 228 This is not a perfect emulation as the TB-303 has unique
+oscillators and filter designs. I tried my best with simple bandlimited
+oscillators and two cascaded bob~ and focused on modulation behavior
+instead.;
+#X obj 1534 65 inlet;
+#X obj 1727 943 outlet~;
+#X connect 0 0 122 0;
+#X connect 1 0 0 0;
+#X connect 2 0 23 0;
+#X connect 2 1 3 0;
+#X connect 2 1 6 0;
+#X connect 2 2 6 2;
+#X connect 2 2 5 3;
+#X connect 3 0 5 2;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 4 2;
+#X connect 6 1 4 3;
+#X connect 6 2 5 1;
+#X connect 14 0 35 0;
+#X connect 15 0 41 0;
+#X connect 16 0 26 0;
+#X connect 17 0 39 0;
+#X connect 18 0 23 1;
+#X connect 19 0 29 0;
+#X connect 20 0 31 0;
+#X connect 21 0 22 0;
+#X connect 22 0 37 1;
+#X connect 23 0 99 0;
+#X connect 25 0 33 0;
+#X connect 26 0 27 0;
+#X connect 27 0 6 1;
+#X connect 28 0 54 0;
+#X connect 29 0 28 0;
+#X connect 31 0 30 0;
+#X connect 33 0 32 0;
+#X connect 34 0 36 0;
+#X connect 35 0 34 0;
+#X connect 36 0 37 0;
+#X connect 37 0 1 1;
+#X connect 39 0 38 0;
+#X connect 40 0 55 0;
+#X connect 41 0 40 0;
+#X connect 42 0 51 0;
+#X connect 42 0 52 0;
+#X connect 42 0 53 0;
+#X connect 42 0 67 0;
+#X connect 51 0 106 0;
+#X connect 52 0 80 0;
+#X connect 55 0 56 0;
+#X connect 56 0 54 1;
+#X connect 58 0 57 0;
+#X connect 59 0 58 0;
+#X connect 64 0 4 6;
+#X connect 65 0 64 0;
+#X connect 67 0 66 0;
+#X connect 69 0 68 0;
+#X connect 70 0 69 0;
+#X connect 74 0 73 0;
+#X connect 77 0 79 0;
+#X connect 78 0 77 0;
+#X connect 97 0 2 1;
+#X connect 98 0 2 2;
+#X connect 99 0 4 0;
+#X connect 100 0 101 0;
+#X connect 102 0 100 0;
+#X connect 103 0 104 0;
+#X connect 105 0 103 0;
+#X connect 106 0 43 0;
+#X connect 106 1 44 0;
+#X connect 106 2 45 0;
+#X connect 106 3 46 0;
+#X connect 106 4 47 0;
+#X connect 106 5 48 0;
+#X connect 106 6 49 0;
+#X connect 106 7 50 0;
+#X connect 106 8 61 0;
+#X connect 106 9 71 0;
+#X connect 106 10 88 0;
+#X connect 106 11 89 0;
+#X connect 106 12 90 0;
+#X connect 106 13 107 0;
+#X connect 106 14 108 0;
+#X connect 114 0 113 0;
+#X connect 121 0 2 0;
+#X coords 0 -1 1 1 800 170 1 0 0;

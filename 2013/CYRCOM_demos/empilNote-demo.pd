@@ -1,0 +1,10 @@
+#N canvas 882 147 675 549 10;
+#X declare -path ../TOOLS;
+#X obj 475 11 path ../TOOLS;
+#X obj 200 123 empilNote;
+#X obj 115 181 print 1;
+#X obj 185 184 print 2;
+#X obj 253 185 print 3;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 1 2 4 0;

@@ -1,0 +1,48 @@
+#N canvas 339 52 1440 826 16;
+#X declare -path ../TOOLS;
+#X obj 189 191 modsnd_insert~ pu_pa;
+#X obj 30 518 modsnd_send~ pu_pa;
+#X obj 323 708 dac~;
+#X obj 181 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 286 146 pause;
+#X msg 252 113 load;
+#X obj 242 515 modsnd_send~ pu_pa;
+#X obj 554 169 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 584 308 delay 100;
+#X obj 551 240 spigot 1;
+#X msg 599 200 0;
+#X obj 551 274 t f b b;
+#X msg 645 200 1;
+#X obj 271 335 line~;
+#X obj 569 533 modsnd_send~ pu_pa;
+#X obj 384 259 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 572 486 littlecosvar~ 0.1 1 50;
+#X obj 245 468 littlecosvar~ 0.1 1 120;
+#X obj 177 24 path ../TOOLS;
+#X connect 0 0 13 0;
+#X connect 0 1 3 0;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 2 0;
+#X connect 6 1 2 1;
+#X connect 7 0 9 0;
+#X connect 8 0 12 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 1;
+#X connect 11 1 8 0;
+#X connect 11 2 10 0;
+#X connect 12 0 9 1;
+#X connect 13 0 1 0;
+#X connect 13 0 16 0;
+#X connect 13 0 17 0;
+#X connect 14 0 2 0;
+#X connect 14 1 2 1;
+#X connect 15 0 13 0;
+#X connect 16 0 14 0;
+#X connect 17 0 6 0;

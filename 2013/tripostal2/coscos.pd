@@ -1,0 +1,103 @@
+#N canvas 248 12 1139 964 10;
+#X obj 312 628 *~ 1;
+#X obj 354 613 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 182 582 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 313 658 dac~;
+#X obj 263 563 *~ 1;
+#X obj 472 136 vsl 15 128 0 1 0 0 empty volume empty 0 -9 0 10 -4034
+-1 -1 12700 1;
+#X text 519 209 VOLUMEEEEE;
+#X obj 751 810 tgl 30 0 randdist empty empty 17 7 0 10 -260097 -1 -1
+1 1;
+#X text 789 818 Random dist on each one;
+#X floatatom 799 843 6 0 1 1 or_set - setdist;
+#X obj 409 136 vsl 15 128 0 1 0 0 empty volume empty 0 -9 0 10 -4034
+-1 -1 12700 1;
+#X obj 346 136 vsl 15 128 0 1 0 0 empty volume empty 0 -9 0 10 -4034
+-1 -1 12700 1;
+#X obj 283 136 vsl 15 128 0 1 0 0 empty volume empty 0 -9 0 10 -4034
+-1 -1 12700 1;
+#X obj 221 136 vsl 15 128 0 1 0 0 empty volume empty 0 -9 0 10 -4034
+-1 -1 12700 1;
+#X obj 158 136 vsl 15 128 0 1 0 0 empty volume empty 0 -9 0 10 -4034
+-1 -1 12700 1;
+#X obj 95 136 vsl 15 128 0 1 0 0 empty volume empty 0 -9 0 10 -4034
+-1 -1 12700 1;
+#X obj 32 136 vsl 15 128 0 1 0 0 empty volume empty 0 -9 0 10 -4034
+-1 -1 12700 1;
+#X obj 586 136 vsl 24 128 0 1 0 0 volume empty empty 0 -9 0 10 -257985
+-1 -1 12700 1;
+#X obj 751 772 s envmode;
+#X msg 792 695 1;
+#X msg 792 725 2;
+#X text 826 692 all enveloppes at the same time (begining of time)
+;
+#X text 828 723 random events inside tempo;
+#X obj 708 -11 cnv 10 3 900 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 31 325 randomenv;
+#X obj 32 280 theone 1;
+#X obj 586 86 loadbang;
+#X msg 586 108 0.3;
+#X obj 794 361 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 795 388 metro 200;
+#X obj 795 423 temps;
+#X obj 158 280 theone 3;
+#X obj 95 280 theone 2;
+#X obj 221 280 theone 4;
+#X obj 283 280 theone 5;
+#X obj 346 280 theone 6;
+#X obj 409 280 theone 7;
+#X obj 472 280 theone 8;
+#X obj 846 359 r metro;
+#X obj 345 305 randomenv;
+#X obj 95 305 randomenv;
+#X obj 220 305 randomenv;
+#X obj 408 325 randomenv;
+#X obj 282 325 randomenv;
+#X obj 159 325 randomenv;
+#X obj 472 305 randomenv;
+#X obj 182 614 rec1 tripostal;
+#X obj 283 449 /~ 4;
+#X connect 0 0 3 0;
+#X connect 0 0 3 1;
+#X connect 1 0 0 1;
+#X connect 2 0 46 0;
+#X connect 4 0 0 0;
+#X connect 4 0 46 1;
+#X connect 5 0 37 0;
+#X connect 10 0 36 0;
+#X connect 11 0 35 0;
+#X connect 12 0 34 0;
+#X connect 13 0 33 0;
+#X connect 14 0 31 0;
+#X connect 15 0 32 0;
+#X connect 16 0 25 0;
+#X connect 19 0 18 0;
+#X connect 20 0 18 0;
+#X connect 24 0 47 0;
+#X connect 25 0 24 0;
+#X connect 26 0 27 0;
+#X connect 27 0 17 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 31 0 44 0;
+#X connect 32 0 40 0;
+#X connect 33 0 41 0;
+#X connect 34 0 43 0;
+#X connect 35 0 39 0;
+#X connect 36 0 42 0;
+#X connect 37 0 45 0;
+#X connect 38 0 29 1;
+#X connect 39 0 47 0;
+#X connect 40 0 47 0;
+#X connect 41 0 47 0;
+#X connect 42 0 47 0;
+#X connect 43 0 47 0;
+#X connect 44 0 47 0;
+#X connect 45 0 47 0;
+#X connect 47 0 4 0;
+#X coords 0 964 1 963 85 60 0;

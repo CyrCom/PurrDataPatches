@@ -1,0 +1,31 @@
+#N canvas 855 160 675 549 10;
+#X declare -path ../TOOLS;
+#X obj 475 11 path ../TOOLS;
+#X obj 193 230 cosline~;
+#X obj 193 266 see;
+#X obj 208 102 delay 100;
+#X obj 223 175 delay 100;
+#X msg 208 124 0.2 100;
+#X obj 208 80 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 223 156 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 223 194 -0.6 100;
+#X obj 486 66 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 264 144 then 0.2 in 100ms \, then -0.6 in 100ms.;
+#X text 264 132 -1 at start \, then 1 in 100ms;
+#X text 272 48 <----- click here to begin ramp;
+#X msg 193 49 -1 0 \, 1 100;
+#X connect 1 0 2 0;
+#X connect 3 0 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 7 0;
+#X connect 5 0 1 0;
+#X connect 6 0 3 0;
+#X connect 7 0 4 0;
+#X connect 8 0 1 0;
+#X connect 9 0 2 2;
+#X connect 13 0 1 0;
+#X connect 13 0 6 0;
+#X connect 13 0 9 0;

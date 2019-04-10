@@ -1,0 +1,14 @@
+#N canvas 29 540 535 426 16;
+#X obj 148 282 outlet~;
+#X obj 232 281 outlet~;
+#X obj 149 133 *~ 1;
+#X obj 149 99 inlet~;
+#X obj 336 110 r spls-\$1;
+#X obj 149 211 tabread4~ \$1_sonL;
+#X obj 233 240 tabread4~ \$1_sonR;
+#X connect 2 0 5 0;
+#X connect 2 0 6 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 1;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;

@@ -1,0 +1,6 @@
+#N canvas 646 171 657 535 10;
+#X declare -path ../TOOLS;
+#X obj 240 41 path ../TOOLS;
+#X obj 249 246 see;
+#X obj 248 205 osc~ 100;
+#X connect 2 0 1 0;

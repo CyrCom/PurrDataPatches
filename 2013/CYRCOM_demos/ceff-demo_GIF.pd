@@ -1,0 +1,42 @@
+#N canvas 289 127 1222 789 16;
+#X declare -path ../tools;
+#X obj 462 132 cnv 20 650 80 empty empty empty 20 12 0 10 -259933 -66577
+0;
+#X obj 725 214 cnv 20 338 340 empty empty empty 20 12 0 10 -49101 -66577
+0;
+#X obj 412 90 cnv 20 650 40 empty empty empty 20 12 0 10 -79936 -66577
+0;
+#X obj 421 231 ceff~;
+#X obj 121 567 path ../tools;
+#X obj 420 270 see;
+#X floatatom 659 343 5 0 0 0 - - -;
+#X obj 141 502 multiplex~;
+#X msg 182 438 1;
+#X msg 120 438 0;
+#X obj 468 186 line~;
+#X obj 733 271 snapshot~;
+#X obj 733 219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 553 138 1 10000;
+#X msg 468 138 0 10000;
+#X obj 422 98 osc~ 4;
+#X obj 733 241 metro 250;
+#X text 530 170 permet d'envoyer un valeur allant de 0 à 1 en 10 secondes
+\, puis de 1 à 0 en un temps identique.;
+#X text 500 98 oscillateur cosinuïdal à 4 Hz;
+#X text 728 339 : valeur envoyée à ceff~;
+#X text 743 392 (Il s'agit d'une illustration \,;
+#X text 743 412 car la valeur envoyée à ceff~;
+#X text 743 432 est échantillonée à la même;
+#X text 743 452 fréquence que le signal);
+#X connect 3 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 3 1;
+#X connect 10 0 11 0;
+#X connect 11 0 6 0;
+#X connect 12 0 16 0;
+#X connect 13 0 10 0;
+#X connect 14 0 10 0;
+#X connect 15 0 3 0;
+#X connect 16 0 11 0;

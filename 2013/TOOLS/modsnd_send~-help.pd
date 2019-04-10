@@ -1,0 +1,27 @@
+#N canvas 434 370 709 562 16;
+#X obj 77 449 dac~;
+#X obj 113 197 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 77 93 load;
+#X obj 77 319 line~;
+#X msg 77 126 stop;
+#X msg 77 159 bang;
+#X text 123 158 -> tells line to start from 0 (the beginning);
+#X text 124 92 -> load a soundfile;
+#X text 124 126 -> stops playing;
+#X text 134 192 ---> placing a bang object this way makes it loop;
+#X text 244 306 has to be the same as modsnd_send~;
+#X text 149 340 It allows you to have multiples couples of send/insert
+;
+#X obj 77 233 modsnd_insert~ \$0;
+#X obj 77 413 modsnd_send~ \$0;
+#X text 240 284 '\$0'= any unique name string you want;
+#X connect 1 0 12 0;
+#X connect 2 0 12 0;
+#X connect 3 0 13 0;
+#X connect 4 0 12 0;
+#X connect 5 0 12 0;
+#X connect 12 0 3 0;
+#X connect 12 1 1 0;
+#X connect 13 0 0 0;
+#X connect 13 1 0 1;
