@@ -1,0 +1,102 @@
+begincue file_loaded
+	cmd reset
+	cmd bShowTestScreen 1
+	cmd bShowWarpers 1
+	cmd set_alpha_testScreen 255
+end
+
+begincue surfaces_creation
+	
+	cmd create_surface + create_surface + create_surface + create_surface
+	
+	comment2 creation of 4 surfaces
+end
+
+begincue position_warpers -1
+	cmd select_surface 1
+	cmd set_warper_pos 100 100
+	cmd select_surface next
+	cmd set_warper_pos 800 100
+	cmd select_surface next
+	cmd set_warper_pos 100 600
+	cmd select_surface next
+	cmd set_warper_pos 800 600
+	
+	cmd set_alpha_testScreen 100
+		# testscreen becomes transparent (opaque = 255)
+end
+
+begincue loading_videos -1
+	cmd select_surface 1
+	cmd settings true + load_video 2
+	cmd select_surface next
+	cmd settings true + load_video 1
+	cmd select_surface next
+	cmd settings true + load_video 6
+	cmd select_surface next
+	cmd settings true + load_video 3
+	# you can ask RPi with 'list_files' and it will send the index for each file
+	# 'list_files dropdown' prepares it for a pure-data dropdown object
+end
+
+begincue adapt_warpers
+	cmd bShowTestScreen 0
+	cmd select_surface 4
+	cmd adapt_warper_to_media
+	cmd select_surface 3
+	cmd adapt_warper_to_media
+	cmd select_surface previous
+	cmd adapt_warper_to_media
+	cmd select_surface previous
+	cmd adapt_warper_to_media
+	
+end
+
+begincue hide_warpers -1
+	cmd bShowWarpers 0
+end
+
+begincue recall_some_pos
+	cmd select_surface 1
+	cmd set_all_corners 365 58 609 55 150 142 434 142
+	
+	cmd select_surface next
+	cmd set_all_corners 485 378 645 378 485 538 645 538
+
+	cmd select_surface next
+	cmd set_all_corners 150 142 434 142 150 297 434 297
+
+	cmd select_surface next
+	cmd set_all_corners 434 142 609 55 434 297 609 191
+end
+
+begincue test_screens_back
+	cmd bShowTestScreen 1
+end
+
+begincue show_warpers
+	cmd bShowWarpers 1
+	comment1 ACTIVATE KEYBOARD AND MOUSE
+end
+
+begincue Invert_colors!
+	cmd bInvertColors 1
+end
+
+begincue Invert_again
+	cmd bInvertColors 0
+end
+
+begincue seek_to
+	cmd seek_to 29
+		# seeks to a specific time in Seconds.
+end
+
+begincue hide_all
+	cmd bShowWarpers 0
+	cmd bShowTestScreen 0
+end
+
+begincue hide_DebugTxt
+	cmd bShowDebugText false
+end

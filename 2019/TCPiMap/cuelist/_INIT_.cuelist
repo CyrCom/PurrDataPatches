@@ -1,0 +1,58 @@
+begincue Cuelist_loaded! -1 255 255 0 # cue <cue_name> <autogo_time (Seconds)> <colorR colorG colorB>
+	init_time
+	# reset the top timer
+	clients ALL reset
+		# resets the toggable client list
+	comment1 _INIT_.cuelist has been loaded successfully.
+	comment4 Cyril Communal 2019
+end
+
+begincue TCP_connection -1 0 255 0 # secondes R G B
+	to_netserver broadcast reset + bShowDebugText 1
+		# reset: delete all surfaces
+		# broadcast: send all connected clients
+		# + lets you give multiple commands in the same message (only when you reach one C++ app)
+	to_netserver client 1 you_are RASP_1
+		# you can identify and name each of your Raspberry Pis by a name (names are saved on RPi)
+	delaySend 500 to_netserver broadcast who_is_there
+		# asks to send name so we can associate IP and SOCKET
+	delaySend2 1000 clients RASP_1 active 1
+		# delaySend sends a command with a delay (in milliseconds)
+	comment1 Initialisation\, clients have responded.
+	comment2 Edit _INIT_.cuelist to prepare a show
+	comment4 Cyril Communal 2019
+		# comments are visible under the 'NEXT' button
+end
+
+begincue load_demo.cuelist
+	read demo.cuelist
+end
+# hash for comment
+
+# begincue <cue_name>
+# end
+# begincue <cue_name> <autogo_time (Seconds)>
+# end
+# begincue <cue_name> <autogo_time (Seconds)> <colorR colorG colorB>
+# end
+
+# clients_toggles   ::::::::::::: sends to clients GUI toggable bars
+# to_netserver   :::::::::::::::: sends to netserver object
+# to_netserver broadcast   :::::: netserver object will send to all connected clients
+# cmd   ::::::::::::::::::::::::: sends commands to all 'active' (toggle on) clients
+# init_time   ::::::::::::::::::: reinitialize global timer
+# read   :::::::::::::::::::::::: loads a new cue file, relative path. 
+
+# ##################### and then ###############################
+# <name (sends to a 'r name' on the patch)> <value list (empty for bang)>
+# delaySend <delay(mS)> <send name> <value list>
+# line #
+
+# read <relative path to a cuelist file>
+
+# speed <relative speed of the patch> DEPRECATED UNTIL FOUND USEFUL
+
+# comment1 text
+# comment2 text
+# comment3 text
+# comment4 text

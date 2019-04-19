@@ -1,1 +1,0 @@
-"Cuelist Time Line" (ctl) is a patch that help the constrution of a time line, specially for theater projects. The time line is based on a cue list that can easilly be edited without any pd knowledge. This project aim at controling other modules offering sound difusion / lighting control etc
